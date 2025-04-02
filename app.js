@@ -41,7 +41,7 @@ function runGame(){
     guessesRemaining--;
     previousGuesses.push(inputGuessNumber.value);
     guessesRemainingOutput.textContent = guessesRemaining;
-    previousGuessesOutput.textContent = previousGuesses;
+    previousGuessesOutput.textContent = previousGuesses.join(" - ");
     if (+inputGuessNumber.value == randomNumber) {
         pMessageOutut.textContent = message.won + `The correct number is ${randomNumber}. ${guessesRemaining} remaining attempts.`;
         getReset();
@@ -56,7 +56,6 @@ function runGame(){
     }
     inputGuessNumber.value = "";
     inputGuessNumber.focus();
-
 }
 
 function getReset(){
