@@ -32,7 +32,7 @@ if (document.getElementById("subt").value != "Reset"){
     if (guessesRemaining == 0) {
         document.getElementById("subt").value = "Reset";
         inputGuessNumber.disabled = true;
-        pMessageOutut.textContent = messageLose;
+        pMessageOutut.textContent = messageLose + `El número era el ${randomNumber}.`;
     }
     inputGuessNumber.value = "";
     inputGuessNumber.focus();
