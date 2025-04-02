@@ -14,7 +14,6 @@ const messageLose = "You Lost! Better luck next time!";
 
 document.getElementById("form").addEventListener("submit", (e) => {
 if (document.getElementById("subt").value != "Reset"){
-    console.log(randomNumber);
     e.preventDefault();
     pMessageOutut.style.backgroundColor = "#7b3056";
     guessesRemaining--;
