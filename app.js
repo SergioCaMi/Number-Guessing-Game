@@ -13,26 +13,32 @@ const messageLow = "Too low! Try again!";
 const messageLose = "You Lost! Better luck next time!";
 
 document.getElementById("form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  pMessageOutut.style.backgroundColor = "#7b3056";
-  guessesRemaining--;
-  previousGuesses.push(inputGuessNumber.value);
-  guessesRemainingOutput.textContent = guessesRemaining;
-  previousGuessesOutput.textContent = previousGuesses;
-  if (inputGuessNumber.value == randomNumber) {
-    pMessageOutut.textContent = messageWon;
-    document.getElementById("subt").disabled = true;
-    inputGuessNumber.disabled = true;
-  }
-  if (inputGuessNumber.value > randomNumber)
-    pMessageOutut.textContent = messageHigh;
-  if (inputGuessNumber.value < randomNumber)
-    pMessageOutut.textContent = messageLow;
-  if (guessesRemaining == 0) {
-    document.getElementById("subt").disabled = true;
-    inputGuessNumber.disabled = true;
-    pMessageOutut.textContent = messageLose;
-  }
-  inputGuessNumber.value = "";
-  inputGuessNumber.focus();
+if (document.getElementById("subt").value != "Reset"){
+    e.preventDefault();
+    pMessageOutut.style.backgroundColor = "#7b3056";
+    guessesRemaining--;
+    previousGuesses.push(inputGuessNumber.value);
+    guessesRemainingOutput.textContent = guessesRemaining;
+    previousGuessesOutput.textContent = previousGuesses;
+    if (+inputGuessNumber.value == randomNumber) {
+        pMessageOutut.textContent = messageWon;
+        document.getElementById("subt").value = "Reset";
+        inputGuessNumber.disabled = true;
+    }
+    if (+inputGuessNumber.value > randomNumber)
+        pMessageOutut.textContent = messageHigh;
+    if (+inputGuessNumber.value < randomNumber)
+        pMessageOutut.textContent = messageLow;
+    if (guessesRemaining == 0) {
+        document.getElementById("subt").value = "Reset";
+        inputGuessNumber.disabled = true;
+        pMessageOutut.textContent = messageLose;
+    }
+    inputGuessNumber.value = "";
+    inputGuessNumber.focus();
+} else {
+    guessesRemaining = 10;
+    previousGuesses.splice(0, previousGuesses.length);
+    inputGuessNumber.focus();
+}
 });
