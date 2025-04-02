@@ -14,9 +14,6 @@ const messageHigh = "Too high! Try again!";
 const messageLow = "Too low! Try again!";
 const messageLose = "You Lost! Better luck next time!";
 
-
-
-guessesRemainingOutput
 document.getElementById("subt").addEventListener("click", (e)=>{
     e.preventDefault();
     if (inputGuessNumber.value != ''){
