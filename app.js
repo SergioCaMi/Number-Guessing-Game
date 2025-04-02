@@ -14,6 +14,7 @@ const messageLose = "You Lost! Better luck next time!";
 
 document.getElementById("form").addEventListener("submit", (e) => {
 if (document.getElementById("subt").value != "Reset"){
+    console.log(randomNumber);
     e.preventDefault();
     pMessageOutut.style.backgroundColor = "#7b3056";
     guessesRemaining--;
@@ -29,10 +30,10 @@ if (document.getElementById("subt").value != "Reset"){
         pMessageOutut.textContent = messageHigh;
     if (+inputGuessNumber.value < randomNumber)
         pMessageOutut.textContent = messageLow;
-    if (guessesRemaining == 0) {
+    if (guessesRemaining == 0 && +inputGuessNumber.value != randomNumber) {
         document.getElementById("subt").value = "Reset";
         inputGuessNumber.disabled = true;
-        pMessageOutut.textContent = messageLose + `El número era el ${randomNumber}.`;
+        pMessageOutut.textContent = messageLose + `El número era el ${randomNumber}. Attempts: ${guessesRemaining} `;
     }
     inputGuessNumber.value = "";
     inputGuessNumber.focus();
