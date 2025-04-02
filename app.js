@@ -21,7 +21,7 @@ if (document.getElementById("subt").value != "Reset"){
     guessesRemainingOutput.textContent = guessesRemaining;
     previousGuessesOutput.textContent = previousGuesses;
     if (+inputGuessNumber.value == randomNumber) {
-        pMessageOutut.textContent = messageWon + `The correct number is ${randomNumber}. Attempts: ${guessesRemaining} `;
+        pMessageOutut.textContent = messageWon + `The correct number is ${randomNumber}. ${guessesRemaining} remaining attempts.`;
         document.getElementById("subt").value = "Reset";
         inputGuessNumber.disabled = true;
     }
@@ -32,7 +32,7 @@ if (document.getElementById("subt").value != "Reset"){
     if (guessesRemaining == 0 && +inputGuessNumber.value != randomNumber) {
         document.getElementById("subt").value = "Reset";
         inputGuessNumber.disabled = true;
-        pMessageOutut.textContent = messageLose + `The correct number is ${randomNumber}. Attempts: ${guessesRemaining} `;
+        pMessageOutut.textContent = messageLose + `The correct number is ${randomNumber}. ${guessesRemaining} remaining attempts.`;
     }
     inputGuessNumber.value = "";
     inputGuessNumber.focus();
